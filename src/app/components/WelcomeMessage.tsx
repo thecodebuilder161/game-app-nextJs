@@ -6,8 +6,12 @@ export default async function WelcomeMessage() {
 
   return (
     <div>
-      <h1 className="text-4xl font-bold text-left mb-2 text-white drop-shadow-lg tracking-wide">Welcome, <span className="text-[#8eb50d]">{userDetails?.name}</span></h1>
-      <p className="text-gray-300 mb-8">{userDetails?.event}</p>
+      <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-left sm:text-left mb-2 text-white drop-shadow-lg tracking-wide">
+        Welcome, <span className="text-[#8eb50d]">{userDetails?.name}</span>
+      </h1>
+      <p className="text-sm sm:text-base md:text-lg text-gray-300 mb-6 sm:mb-8">
+        {userDetails?.event}
+      </p>
     </div>
   )
 }

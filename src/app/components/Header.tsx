@@ -7,7 +7,7 @@ export default async function Header() {
   const userDetails = userLoggedIn ? await getUserInfo() : null;
 
   return (
-    <header className="w-full bg-[#232946] shadow-lg border-b-2 border-[#8eb50d]">
+    <header className="w-full px-2 bg-[#232946] shadow-lg border-b-2 border-[#8eb50d]">
       <div className="container mx-auto py-3 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <Image

@@ -1,9 +1,7 @@
 'use client';
-
-import { useActionState, useState, useEffect } from "react";
+import { useActionState, useState } from "react";
 import { useFormStatus } from "react-dom";
-import { login } from "./actions";
-
+import { login } from "@/app/api/auth";
 
 const LoginForm = () => {
   const [username, setUsername] = useState("");

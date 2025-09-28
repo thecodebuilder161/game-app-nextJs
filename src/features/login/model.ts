@@ -1,4 +1,4 @@
-import { string, z } from 'zod';
+import { z } from 'zod';
 
 export const LoginFormSchema = z.object({
     username: z
@@ -25,16 +25,3 @@ export type LoginResponse = {
     player: Player;
     error?: string;
 };
-
-export type Categories = {
-    id: number;
-    name: string;
-}[];
-
-export type Games = {
-  name: string;
-  description: string;
-  icon: string;
-  code: string;
-  categoryIds: number[];
-}[];

@@ -1,6 +1,6 @@
 import { cookies } from "next/headers";
 import { decrypt } from "@/app/lib/sessions";
-import { Player } from "./definations";
+import { Player } from "@/features/login/model";
 
 const expiresAt = new Date(Date.now() + 1 * 24 * 60 * 60 * 1000);
 
