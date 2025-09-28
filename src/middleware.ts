@@ -17,12 +17,12 @@ export default async function middleware(req: NextRequest) {
     return NextResponse.redirect(new URL("/login", req.nextUrl));
   }
 
-  if (path === "/" && session?.userId) {
-    return NextResponse.redirect(new URL("/games", req.nextUrl));
-  }
-  if (path === "/login" && session?.userId) {
-    return NextResponse.redirect(new URL("/games", req.nextUrl));
-  }
+  // if (path === "/" && session?.userId) {
+  //   return NextResponse.redirect(new URL("/games", req.nextUrl));
+  // }
+  // if (path === "/login" && session?.userId) {
+  //   return NextResponse.redirect(new URL("/games", req.nextUrl));
+  // }
   if (isPublicRoute && session?.userId) {
     return NextResponse.redirect(new URL("/games", req.nextUrl));
   }

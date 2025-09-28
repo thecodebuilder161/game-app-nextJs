@@ -68,7 +68,7 @@ function SubmitButton() {
 
   return (
     <button
-        type="submit" disabled={pending}
+        type="submit" disabled={pending} id="submitSignIn"
         className="w-full py-2 px-4 bg-gradient-to-r from-[#8eb50d] to-[#eebbc3] hover:from-[#eebbc3] hover:to-[#8eb50d] text-[#232946] font-extrabold rounded-lg shadow-lg transition text-lg tracking-wide border-2 border-[#8eb50d]"
     >
         Log In

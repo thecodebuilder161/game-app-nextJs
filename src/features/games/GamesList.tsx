@@ -42,7 +42,7 @@ const GamesList = ({ games, selectedCategoryId, search = "" }: GamesListProps) =
 
       <div className='flex flex-col gap-8'>
         {filteredGames.map((g) => (
-          <div key={g.name} className="bg-[#232946] rounded-2xl shadow-xl flex flex-col md:flex-row items-center md:items-stretch hover:scale-[1.01] transition-transform overflow-hidden">
+          <div key={g.name} id={g.code} className="bg-[#232946] rounded-2xl shadow-xl flex flex-col md:flex-row items-center md:items-stretch hover:scale-[1.01] transition-transform overflow-hidden">
             <div className="flex-shrink-0 w-full md:w-64 h-48 md:h-auto flex items-center justify-center">
               {g?.icon && <Image
                 src={g.icon.startsWith('/') ? g.icon : `/${g.icon}`}

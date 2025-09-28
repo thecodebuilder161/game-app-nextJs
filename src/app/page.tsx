@@ -23,7 +23,7 @@ export default function Home() {
         </div>
         <div className="flex justify-center gap-6 mt-8">
           <Link
-            href="/login"
+            href="/login" id='signIn'
             className="px-8 py-3 bg-gradient-to-r from-[#8eb50d] to-[#eebbc3] hover:from-[#eebbc3] hover:to-[#8eb50d] text-[#232946] font-extrabold rounded-lg shadow-lg transition text-lg tracking-wide border-2 border-[#8eb50d] inline-flex items-center justify-center"
           >
             Sign In
