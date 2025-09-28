@@ -20,6 +20,10 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 Run npm run mock-api in new terminal. [http://localhost:3001](http://localhost:3001)
 
+## E2E Test Case
+
+Run npx cypress run in new terminal.
+
 ## Mock Users
 
 username: rebecka
@@ -30,4 +34,5 @@ password: dad
 
 username: stoffe
 password: rock
+
 
