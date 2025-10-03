@@ -1,4 +1,6 @@
-This is a Casino online gaming web application.
+This is a Casino online gaming web application built using NextJs, Tailwind CSS and test case with Cypress.
+
+Functionality: Login, Logout, Session, Games listing.
 
 ## Getting Started
 
