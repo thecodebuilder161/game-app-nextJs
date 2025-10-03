@@ -8,7 +8,7 @@ const loginApiCall = async(username: string, password: string) => {
         "Content-Type": "application/json",
     },
     body: JSON.stringify({ username, password }),
-    cache: "no-store"
+    cache: "default"
   });
 
   const data: LoginResponse = await res.json();

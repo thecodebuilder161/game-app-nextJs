@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Script from "next/script";
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { Games } from '@/features/games/model';
 
 
@@ -14,27 +14,30 @@ interface GamesListProps {
 
 const GamesList = ({ games, selectedCategoryId, search = "" }: GamesListProps) => {
   const [showPopup, setShowPopup] = useState(false);
+  const [gameUrl, setGameUrl] = useState('');
 
   const launchGame = (gameCode: string) => {
+    const url = `https://d1oij17g4yikkz.cloudfront.net/mcasino/quickspin/${gameCode}/index.html?moneymode=fun&partnerid=quickspin`;
+    console.log(url);
+    setGameUrl(url);
     setShowPopup(true);
-    if (typeof window !== "undefined" && window.comeon?.game?.launch) {
-      window.comeon.game.launch(gameCode);
-    }
+    // if (typeof window !== "undefined" && window.comeon?.game?.launch) {
+    //   window.comeon.game.launch(gameCode);
+    // }
   };
 
   const closePopup = () => {
-    const container = document.getElementById("game-launch");
-    if (container) {
-      container.innerHTML = "";
-    }
+    setGameUrl('');
     setShowPopup(false);
   };
 
-  const filteredGames = (games || [])
+  const filteredGames = useMemo(() => {
+    return (games || [])
     .filter(g => g.categoryIds.includes(selectedCategoryId))
     .filter(g =>
       g.name.toLowerCase().includes(search.toLowerCase())
     );
+  }, [games, selectedCategoryId, search]) 
 
   return (
     <>
@@ -71,15 +74,19 @@ const GamesList = ({ games, selectedCategoryId, search = "" }: GamesListProps) =
       </div>
       <div className={`${ showPopup ? "fixed inset-0 w-full h-screen bg-black/60 flex items-center justify-center z-50" : "hidden"}`}>
         <div id="game-launch" className='relative z-50' />
-        {showPopup && <button type='button'
-          onClick={closePopup}
-          className="absolute cursor-pointer z-10 top-3 right-5 text-white text-5xl font-thin hover:text-[#eebbc3] transition"
-          aria-label="Close"
-        >
-          &times;
-        </button>}
-        {showPopup && <div onClick={closePopup} className='absolute top-0 right-0 w-full h-screen bg-black/60 z-1' />}
-        
+          {showPopup && <button type='button'
+            onClick={closePopup}
+            className="absolute cursor-pointer z-10 top-3 right-5 text-white text-5xl font-thin hover:text-[#eebbc3] transition"
+            aria-label="Close"
+          >
+            &times;
+          </button>}
+          {showPopup && <div onClick={closePopup} className='absolute top-0 right-0 w-full h-screen bg-black/60 z-1' />}
+          {gameUrl && (
+            <>
+              <iframe src={gameUrl} width="640" height="480" className='relative z-10' style={{ border: "none" }} />
+            </>
+          )}
       </div>
     </>
   );

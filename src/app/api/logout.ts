@@ -9,7 +9,7 @@ const logoutApiCall = async () => {
           "Content-Type": "application/json",
       },
       body: JSON.stringify({ username }),
-      cache: "no-store"
+      cache: "default"
   });
   
   if (!res.ok) {
